@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #0a0a0f;
+  --color-card: #12121a;
+  --color-cyan: #00f0ff;
+  --color-pink: #ff0080;
+  --color-orange: #ff6b00;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: white;
+  font-family: 'Rajdhani', sans-serif;
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #00f0ff, #ff0080);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #00f0ff, #ff0080);
+}
+
+/* Selection color */
+::selection {
+  background: rgba(0, 240, 255, 0.3);
+  color: white;
+}
+
+/* Glow text effect */
+.glow-text {
+  text-shadow: 0 0 20px rgba(0, 240, 255, 0.5),
+               0 0 40px rgba(0, 240, 255, 0.3),
+               0 0 60px rgba(0, 240, 255, 0.2);
+}
+
+/* Animated gradient background */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* Pulse glow animation */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 240, 255, 0.6);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Noise texture overlay */
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+/* Hover card lift effect */
+.card-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
+              0 0 30px rgba(0, 240, 255, 0.1);
+}
